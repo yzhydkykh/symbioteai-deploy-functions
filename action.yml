@@ -1,0 +1,12 @@
+# action.yml
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  FIREBASE_TOKEN:  # id of input
+    description: 'Identification token for FIREBASE'
+    required: true'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.FIREBASE_TOKEN }}
