@@ -2,7 +2,8 @@
 
 if [ -z "${FIREBASE_TOKEN}" ]; then
     echo "FIREBASE_TOKEN is missing"
-    exit 1
+    echo '${{ secrets.SERVICE_ACCOUNT_CREDENTIALS }}' > $HOME/gcloud.json
+    export GOOGLE_APPLICATION_CREDENTIALS=$HOME/gcloud.json && firebase login:ci
 fi
 
 cd packages/app/
